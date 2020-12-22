@@ -1,0 +1,9 @@
+<div *ngFor="let header of headers[0]; let i = index" class="animMask" >
+    <h1 class="header__h1" [ngStyle] = "{'transition': !reverseAnims ? calculateTimeout(i, false) : calculateTimeout(i, true) }" [ngClass]="{'visible': initialized}">{{header}}</h1>
+</div>
+<div class="tags mt-2 animMask">
+    <p *ngFor="let tag of tags; let i = index" class="paragraph__tag mr-2" [ngStyle] = "{'transition': !reverseAnims ? calculateTimeout(i, false) : calculateTimeout(i, true) }" [ngClass]="{'visible': initialized}">{{tag}}</p>
+
+</div>
+<p *ngFor="let paragraph of paragraphs" class="paragraph__regular paragraph__animated" [ngStyle] = "{'transition': !reverseAnims ? calculateParagraphTimeout(false) : calculateParagraphTimeout(true)}" [ngClass]="{'paragraph__visible': initialized}">{{paragraph}}</p>
+

@@ -1,0 +1,40 @@
+<router-outlet>
+
+    </router-outlet>
+   
+<div class="row" *ngIf="route == '/portfolio'">
+  
+    <div class="col-lg-5">
+
+        <div *ngFor="let entry of portfolioEntries[0].concat(portfolioEntries[1]); let i = index">
+            <app-animated-text [headers]="[[entry.name]]" (click)="onSelect(entry.name)"></app-animated-text>
+        </div>
+
+    </div>
+    <div class="col-lg-6">
+
+        <div class="gallery">
+            <div class="row">
+
+
+                <div class="col-lg-6">
+                    <div #column class="gallery__column">
+                        <app-galllery-entry *ngFor="let entry of portfolioEntries[0]" [entry]="entry" [imgWidth]="column.offsetWidth" (click)="onSelect(entry.name)">
+
+                        </app-galllery-entry>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 ">
+                    <div class="gallery__column">
+                        <app-galllery-entry *ngFor="let entry of portfolioEntries[1]" [entry]="entry" [imgWidth]="column.offsetWidth">
+
+                        </app-galllery-entry>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

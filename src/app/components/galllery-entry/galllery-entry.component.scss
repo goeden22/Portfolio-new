@@ -1,0 +1,13 @@
+.gallery{
+    &__wrap{
+      width: 90%;
+      overflow: hidden;
+      opacity: 0;
+      transition:width 2s cubic-bezier(.19,1,.22,1), opacity 1500ms cubic-bezier(.19,1,.22,1);
+      
+    }
+}
+.activated{
+    width: 100%;
+    opacity: 1
+}

@@ -1,1 +1,100 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config($font-family: '"Montserrat", sans-serif;');
+@include mat-core($custom-typography);
+
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+//PALETTE
+$primaryColor: #e5e5e5;
+$secondaryColor: rgb(13, 13, 13);
+
+
+html, body { height: 100%; text-rendering: optimizeLegibility; -webkit-text-stroke: 1px transparent; }
+body { margin: 0; font-family: 'Montserrat', "Helvetica Neue", sans-serif; background: $secondaryColor; color: $primaryColor; }
+
+.bg-secondary{
+    background-color: $secondaryColor;
+}
+.color-primary{
+color: $primaryColor;
+}
+
+.header{
+    &__h1{
+        font-weight: 500;
+        font-size:72px;
+        letter-spacing: -1px;
+        line-height: 62px;
+        transform: translateY(95px) skewY(3deg);
+    }
+    &__nav{
+        font-weight: 500;
+        font-size:16px;
+        cursor: pointer;
+    }
+}
+.visible{
+    transform: translateY(0) skewY(0) !important;
+}
+.tags{
+    display: flex;
+}
+.paragraph{
+    &__regular{
+        font-size: 17px;
+        font-weight: 400;
+        letter-spacing: -0.4px;
+        line-height: 30px;
+        width: 500px
+    }
+    &__tag{
+        font-weight: 500;
+        font-size: 20px;
+        padding: 4px;
+        border: 1px solid $primaryColor;
+        transform: translateY(95px) skewY(3deg);
+    }
+    &__animated{
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    &__visible{
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+.mt-m20{
+    margin-top: 0
+}
+
+.or-spacer {
+     width:300px; 
+    position:relative; 
+    
+    .mask { 
+      overflow:hidden; height:20px; 
+      &:after { 
+        content:''; 
+        display:block; margin:-25px auto 0;
+        width:100%; height:25px;  
+        border-radius:125px / 12px;  
+        box-shadow:0 0 10px rgb(43, 43, 43);
+      }
+    }
+}
+.animMask{
+
+    overflow: hidden;
+
+}
+.animatedParagraph{
+    transform: translateY(-15px);
+    transition:transform 2s cubic-bezier(.19,1,.22,1);
+}
