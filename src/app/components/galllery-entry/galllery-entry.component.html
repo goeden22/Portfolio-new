@@ -1,4 +1,19 @@
-
 <div class="gallery__wrap mt-2" [ngClass]="{'activated': initialized}">
-        <img [width]="imgWidth" src="../../../assets/images/placeholder.jpg" alt="">
+        <div class="gallery__cover d-flex flex-column align-items-center" (mouseenter)="animate(true)" (mouseleave)="animate(false)" [ngClass]="{'nonTransparent': visible}">
+                <div class="animMask mt-4">
+                <h2 class="header__h2" [ngClass]="{'visible': visible}">Climate Map</h2>
+        </div>  
+                <div class="animMask">
+                                <div class="d-flex animatedDown" [ngClass]="{'visible': visible}">
+                                                <h2 class="paragraph__smallTag mx-1">React</h2>
+                                                <h2 class="paragraph__smallTag mx-1">Leaflet</h2>
+                                                <h2 class="paragraph__smallTag mx-1">Rest API</h2>
+                                                <h2 class="paragraph__smallTag mx-1">Sass</h2>
+                                        </div>
+                </div>
+                
+                <img class="gallery__coverIMG" [width]="imgWidth" src="../../../assets/images/climate-bw.jpg" alt="">
+        </div>
+
+        <img [width]="imgWidth" src="../../../assets/images/climate.jpg" alt="">
 </div>

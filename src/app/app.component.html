@@ -1,15 +1,16 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-1"></div>
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div class="col-lg-1"><img src="../assets/images/logo.png" class="w-75 mt-3" alt=""></div>
     <div class="col-lg-11">
         <button class="header__nav" [disabled]="disableNav" (click)="navigate('/')">Home</button>
         <button class="header__nav"[disabled]="disableNav" (click)="navigate('/portfolio')">Portfolio</button>
         <button class="header__nav"[disabled]="disableNav" (click)="navigate('/contact')">Contact</button>
       <router-outlet></router-outlet>
 
-  
+      
     </div>
 
   </div>
+
 
 </div>

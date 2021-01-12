@@ -12,6 +12,8 @@ export class AnimatedTextComponent implements OnInit {
   @Input() headers: Array<string[]>
   @Input() paragraphs: string[]
   @Input() tags: string[]
+  @Input() extra: string[]
+  @Input() separator: boolean
 
   initialized: boolean = false
   reverseAnims: boolean = false
@@ -42,5 +44,7 @@ export class AnimatedTextComponent implements OnInit {
   calculateParagraphTimeout(reverse: boolean) {
     return `transform 2000ms cubic-bezier(.19,1,.22,1) ${!this.reverseAnims ? '1000ms' : ''}, opacity 2000ms cubic-bezier(.19,1,.22,1) ${!this.reverseAnims ? '1000ms' : ''}`
   }
-
+  calculateSeparatorTimeout(reverse: boolean){
+    return `width 2000ms cubic-bezier(.19,1,.22,1) ${!this.reverseAnims ? '1000ms' : ''}, opacity 2000ms cubic-bezier(.19,1,.22,1) ${!this.reverseAnims ? '1000ms' : ''}`
+  }
 }

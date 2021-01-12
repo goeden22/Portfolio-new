@@ -20,19 +20,23 @@ export class PortfolioComponent implements OnInit {
   portfolioEntries : Array<PortfolioEntry[]> = []
   headers: Array<string> = []
   route: string
-  navLock: boolean = false
+  navLock: boolean = true
 
 
   ngOnInit(): void {
     this.route = this.router.url
     this.portfolioEntries.push(portfolioEntries.slice(0,Math.floor(portfolioEntries.length/2)))
-    this.portfolioEntries.push(portfolioEntries.slice(Math.floor(portfolioEntries.length/2), portfolioEntries.length))
+    this.portfolioEntries.push(portfolioEntries.slice(Math.floor(portfolioEntries.length/2), portfolioEntries.length));
+
     portfolioEntries.map(entry => {
       this.headers.push(entry.name)
     })
       setTimeout(() => {
         this.initialized = true
       },50)
+      setTimeout(() => {
+        this.navLock = false
+      }, 2000)
   }
   constructor(private router: Router, private activateService: EventEmitterService, private _navigateTo: NavigateToService) {
     router.events.subscribe((routerEvent : Event) => {

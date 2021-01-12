@@ -2,9 +2,9 @@ import { PortfolioEntry } from '../models/portfolio-entry.model';
 
 export const portfolioEntries: PortfolioEntry[] = [
     {
-        name: "project 1",
+        name: "Climate Map",
         img: "main.jpg",
-        tags: ["angular", 'routing', 'database'],
+        tags: ["React", "Leaflet", "Rest API", "Sass"],
         desc: ["The best app there is", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam nostrum magni ex eius eveniet pariatur. Odit debitis error ut"]
     },
     {

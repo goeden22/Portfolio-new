@@ -2,22 +2,22 @@
 
     </router-outlet>
    
-<div class="row" *ngIf="route == '/portfolio'">
+<div class="row w-100 h-90" *ngIf="route == '/portfolio'">
   
-    <div class="col-lg-5">
+    <div class="col-lg-5 h-100 d-flex flex-column justify-content-end">
 
-        <div *ngFor="let entry of portfolioEntries[0].concat(portfolioEntries[1]); let i = index">
+        <div  class="clickable" *ngFor="let entry of portfolioEntries[0].concat(portfolioEntries[1]); let i = index">
             <app-animated-text [headers]="[[entry.name]]" (click)="onSelect(entry.name)"></app-animated-text>
         </div>
 
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-6 h-100 overflow-hidden">
 
         <div class="gallery">
             <div class="row">
 
 
-                <div class="col-lg-6">
+                <div class="col-lg-6 px-2">
                     <div #column class="gallery__column">
                         <app-galllery-entry *ngFor="let entry of portfolioEntries[0]" [entry]="entry" [imgWidth]="column.offsetWidth" (click)="onSelect(entry.name)">
 
@@ -25,7 +25,7 @@
 
                     </div>
                 </div>
-                <div class="col-lg-6 ">
+                <div class="col-lg-6 px-2">
                     <div class="gallery__column">
                         <app-galllery-entry *ngFor="let entry of portfolioEntries[1]" [entry]="entry" [imgWidth]="column.offsetWidth">
 

@@ -28,11 +28,20 @@ color: $primaryColor;
 
 .header{
     &__h1{
-        font-weight: 500;
-        font-size:72px;
+        font-weight: 600;
+        font-size:75px;
         letter-spacing: -1px;
-        line-height: 62px;
+        line-height: 70px;
         transform: translateY(95px) skewY(3deg);
+    }
+    &__h2{
+        font-weight: 600;
+        font-size:45px;
+        letter-spacing: -1px;
+        line-height: 70px;
+        transform: translateY(95px) skewY(3deg);
+        transition: transform 2s cubic-bezier(.19,1,.22,1);
+        
     }
     &__nav{
         font-weight: 500;
@@ -48,11 +57,25 @@ color: $primaryColor;
 }
 .paragraph{
     &__regular{
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 400;
         letter-spacing: -0.4px;
         line-height: 30px;
-        width: 500px
+
+    }
+    &__small{
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: -0.4px;
+        line-height: 30px;
+    }
+    &__bold{
+       
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: -0.4px;
+            line-height: 25px;
+        
     }
     &__tag{
         font-weight: 500;
@@ -60,6 +83,16 @@ color: $primaryColor;
         padding: 4px;
         border: 1px solid $primaryColor;
         transform: translateY(95px) skewY(3deg);
+    }
+    &__smallTag{
+      
+            font-weight: 500;
+            font-size: 16px;
+            padding: 2px;
+            border: 1px solid $primaryColor;
+          
+         
+        
     }
     &__animated{
         transform: translateY(15px);
@@ -97,4 +130,28 @@ color: $primaryColor;
 .animatedParagraph{
     transform: translateY(-15px);
     transition:transform 2s cubic-bezier(.19,1,.22,1);
+}
+app-home, app-portfolio{
+    height: 90vh;
+    display: flex;
+}
+.separator{
+    height: 5px;
+    background: none;
+    width: 50px;
+    border: 1px solid white;
+    transition:width 2s cubic-bezier(.19,1,.22,1) 1000ms, opacity 2s cubic-bezier(.19,1,.22,1) 1000ms;
+    opacity: 0;
+}
+.separator--activated{
+    opacity:1;
+    width: 150px;
+}
+.clickable{
+    opacity: .75;
+    cursor: pointer;
+    transition:opacity .1s linear;
+    &:hover{
+        opacity:1
+    }
 }

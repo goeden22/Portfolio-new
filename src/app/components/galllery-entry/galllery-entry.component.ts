@@ -10,6 +10,7 @@ import { EventEmitterService } from '../../event-emitter.service'
 export class GallleryEntryComponent implements OnInit {
   @Input() entry: PortfolioEntry
   @Input() imgWidth: number
+  @Input() visible: boolean = false;
 
   initialized: boolean = false
 
@@ -24,6 +25,9 @@ export class GallleryEntryComponent implements OnInit {
         this.initialized = state
       }
     })
+  }
+  animate(animation: boolean){
+    this.visible = animation
   }
 
 }
