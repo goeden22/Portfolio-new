@@ -1,0 +1,12 @@
+.separator{
+    height: 5px;
+    background: none;
+    width: 50px;
+    border: 1px solid white;
+    transition:width 2s cubic-bezier(.19,1,.22,1) 1000ms, opacity 2s cubic-bezier(.19,1,.22,1) 1000ms;
+    opacity: 0;
+}
+.separator--activated{
+    opacity:1;
+    width: 150px;
+}

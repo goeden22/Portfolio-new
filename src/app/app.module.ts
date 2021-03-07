@@ -14,6 +14,7 @@ import { EventEmitterService } from './event-emitter.service';
 import { HomeComponent } from './components/home/home.component';
 import { AnimatedTextComponent } from './components/animated-text/animated-text.component';
 import { GallleryEntryComponent } from './components/galllery-entry/galllery-entry.component';
+import { MouseWheelDirective } from './mouse-wheel.directive';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { GallleryEntryComponent } from './components/galllery-entry/galllery-ent
     HomeComponent,
     AnimatedTextComponent,
     GallleryEntryComponent,
+    MouseWheelDirective,
    
   ],
   imports: [

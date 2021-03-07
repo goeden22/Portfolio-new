@@ -26,8 +26,5 @@ export class GallleryEntryComponent implements OnInit {
       }
     })
   }
-  animate(animation: boolean){
-    this.visible = animation
-  }
 
 }

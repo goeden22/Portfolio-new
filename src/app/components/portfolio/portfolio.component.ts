@@ -1,4 +1,4 @@
-import { Component, OnInit,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter, ElementRef, ViewChild, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 
 import { Router, RoutesRecognized, Event, ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -16,11 +16,21 @@ import {PortfolioEntry} from '../../models/portfolio-entry.model'
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit {
+  @ViewChild('gallery') galleryView: ElementRef;
+  @ViewChild('galleryEntry', { read: ElementRef }) galEntry2:ElementRef;
+
+
   initialized: boolean = false
   portfolioEntries : Array<PortfolioEntry[]> = []
   headers: Array<string> = []
   route: string
   navLock: boolean = true
+  highlighted: number
+  //scrolling variables
+  galleryHeight: number
+  entryHeight: number
+  scrollLevel: number
+  scrollValue: number
 
 
   ngOnInit(): void {
@@ -36,7 +46,17 @@ export class PortfolioComponent implements OnInit {
       },50)
       setTimeout(() => {
         this.navLock = false
+        //setting gallery hight atribute for scroll purposes
+        
       }, 2000)
+      
+  }
+  ngAfterViewInit(){
+    setTimeout(() =>{
+      this.getHeight()
+      this.scrollLevel = 0
+    }, 1000)
+    
   }
   constructor(private router: Router, private activateService: EventEmitterService, private _navigateTo: NavigateToService) {
     router.events.subscribe((routerEvent : Event) => {
@@ -54,6 +74,39 @@ export class PortfolioComponent implements OnInit {
       this._navigateTo.navTo(name.replace(/\s/g, ''));
     }
     
+  }
+  onLinkHover(index: number){
+    this.scrollToSelected(index)
+    this.highlight(index)
+  }
+  highlight(entry: number){
+    this.highlighted = entry
+  }
+  getHeight(){
+    this.galleryHeight = this.galleryView.nativeElement.offsetHeight;
+    this.entryHeight = this.galEntry2.nativeElement.offsetHeight
+   
+  }
+  //Function for handling directives
+  scrollUp(){
+    if (this.scrollLevel !== 0){
+      this.scrollLevel -= 1
+      this.scrollValue = (this.entryHeight + 9) * this.scrollLevel
+    }
+   
+  }
+  scrollDown(){
+    if (this.scrollLevel < 2){
+      this.scrollLevel += 1
+    this.scrollValue = (this.entryHeight + 9) * this.scrollLevel
+    }
+  
+    
+  
+  }
+  scrollToSelected(index :number){
+    this.scrollLevel = index
+    this.scrollValue = (this.entryHeight + 9) * this.scrollLevel
   }
 }
 
